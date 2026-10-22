@@ -227,3 +227,93 @@
     grid-column: 1;
   }
 }
+
+/* Đơn hàng & trạng thái thanh toán */
+.order-tag {
+  margin-left: auto;
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--muted);
+}
+
+.order-tag b {
+  font-family: Consolas, monospace;
+  letter-spacing: 1px;
+  color: var(--c-dark);
+}
+
+.pay-status {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  border-radius: 8px;
+  background: #fff8e1;
+  color: #8a5a00;
+  font-weight: 600;
+  font-size: 14.5px;
+}
+
+.spinner {
+  width: 16px;
+  height: 16px;
+  border: 2px solid #f0c36d;
+  border-top-color: #8a5a00;
+  border-radius: 50%;
+  flex-shrink: 0;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .spinner { animation: none; }
+}
+
+.step.success {
+  border: 2px solid #2e7d32;
+  background: #f1f8f2;
+}
+
+.key-box {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 16px;
+  border-radius: 8px;
+  background: #ffffff;
+  border: 1px dashed #2e7d32;
+  font-family: Consolas, monospace;
+  font-size: 20px;
+  letter-spacing: 1px;
+}
+
+#btn-create[disabled] {
+  opacity: 0.6;
+  cursor: wait;
+}
+
+.btn-reported {
+  margin: 4px 0 0;
+  border: 0;
+  cursor: pointer;
+  font: inherit;
+  font-weight: 600;
+  background: #2e7d32;
+}
+
+.btn-reported:hover {
+  background: #1b5e20;
+}
+
+.btn-reported[disabled] {
+  opacity: 0.6;
+  cursor: wait;
+}
+
+.ok-note {
+  color: #2e7d32;
+  font-weight: 600;
+}

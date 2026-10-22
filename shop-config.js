@@ -2,6 +2,8 @@
 // - lemon.month / lemon.lifetime: link thanh toán Lemon Squeezy (thẻ quốc tế). Để trống = dùng PayPal + VietQR.
 // - storeUrl: link Chrome Web Store sau khi được duyệt. Để trống = nút "Thêm vào Chrome" dẫn tới mục Liên hệ.
 window.SHOP = {
+  // URL Web App Google Apps Script (server/Code.gs) - tạo đơn, theo dõi thanh toán, tự cấp mã
+  server: "https://script.google.com/macros/s/AKfycbwmRl-eZfYBqbtmJYb38L_YK4_mAQb5owAQsLod4vFZUHEAz37VrNy7mbNSB6MaJzb-ww/exec",
   storeUrl: "",
   lemon: { month: "", lifetime: "" },
   paypalEmail: "huuhaixd@gmail.com",

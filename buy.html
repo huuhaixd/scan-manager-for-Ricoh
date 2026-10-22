@@ -22,7 +22,7 @@
     <h1><span data-lang="en">Upgrade to Pro</span><span data-lang="vi">Nâng cấp lên Pro</span></h1>
 
     <!-- Bước 1: chọn gói -->
-    <section class="step">
+    <section class="step" id="step-plan">
       <h2><span class="n">1</span><span data-lang="en">Choose a plan</span><span data-lang="vi">Chọn gói</span></h2>
       <div class="plans">
         <label class="plan-opt"><input type="radio" name="plan" value="month" id="plan-month">
@@ -34,28 +34,34 @@
       </div>
     </section>
 
-    <!-- Bước 2: thông tin nhận mã -->
-    <section class="step">
+    <!-- Bước 2: thông tin nhận mã + tạo đơn -->
+    <section class="step" id="step-info">
       <h2><span class="n">2</span><span data-lang="en">Where should we send your key?</span><span data-lang="vi">Nhận mã kích hoạt ở đâu?</span></h2>
       <div class="fields">
         <label for="f-email"><span data-lang="en">E-mail (required)</span><span data-lang="vi">Email (bắt buộc)</span></label>
         <input id="f-email" type="email" placeholder="you@example.com" autocomplete="email">
-        <label for="f-iid"><span data-lang="en">Device ID (optional)</span><span data-lang="vi">Mã máy (không bắt buộc)</span></label>
+        <label for="f-iid"><span data-lang="en">Device ID</span><span data-lang="vi">Mã máy</span></label>
         <input id="f-iid" type="text" placeholder="XXXX-XXXX-XXXX-XXXX" maxlength="19">
-        <p class="hint"><span data-lang="en">Open the extension → ⭐ Pro tab → "Your device ID" → Copy. With it we can send a ready-to-use activation code.</span><span data-lang="vi">Mở tiện ích → thẻ ⭐ Pro → "Mã máy của bạn" → Sao chép. Có mã máy, tác giả gửi luôn mã kích hoạt dùng ngay.</span></p>
+        <p class="hint" id="iid-hint"><span data-lang="en">Filled in automatically when you click "Buy" inside the extension → Pro activates by itself after payment. Otherwise: extension → ⭐ Pro tab → "Your device ID" → Copy.</span><span data-lang="vi">Tự điền khi bạn bấm "Mua" trong tiện ích → thanh toán xong Pro tự kích hoạt. Nếu trống: mở tiện ích → thẻ ⭐ Pro → "Mã máy của bạn" → Sao chép.</span></p>
       </div>
-      <p class="order"><span data-lang="en">Order code</span><span data-lang="vi">Mã đơn hàng</span>: <b id="order-code"></b></p>
+      <p class="warn-mail" id="need-email" hidden><span data-lang="en">Please enter a valid e-mail.</span><span data-lang="vi">Vui lòng nhập email hợp lệ.</span></p>
+      <p class="warn-mail" id="order-error" hidden></p>
+      <div><button type="button" class="btn primary" id="btn-create"><span data-lang="en">Continue to payment</span><span data-lang="vi">Tiếp tục thanh toán</span></button></div>
     </section>
 
     <!-- Bước 3: thanh toán -->
-    <section class="step">
-      <h2><span class="n">3</span><span data-lang="en">Pay</span><span data-lang="vi">Thanh toán</span></h2>
-      <p class="warn-mail" id="need-email" hidden><span data-lang="en">Please enter your e-mail first.</span><span data-lang="vi">Vui lòng nhập email trước.</span></p>
+    <section class="step" id="step-pay" hidden>
+      <h2><span class="n">3</span><span data-lang="en">Pay</span><span data-lang="vi">Thanh toán</span>
+        <span class="order-tag"><span data-lang="en">Order</span><span data-lang="vi">Đơn</span> <b id="order-code"></b></span></h2>
+      <div class="pay-status" id="pay-status">
+        <span class="spinner" aria-hidden="true"></span>
+        <span data-lang="en">Waiting for your payment… this page updates by itself.</span>
+        <span data-lang="vi">Đang chờ thanh toán… trang tự cập nhật khi nhận được tiền.</span>
+      </div>
       <div class="methods">
         <div class="method" id="m-lemon" hidden>
           <h3><span data-lang="en">Card (Visa, Mastercard…)</span><span data-lang="vi">Thẻ quốc tế (Visa, Mastercard…)</span></h3>
           <a class="btn primary" id="btn-lemon" href="#" target="_blank" rel="noopener"><span data-lang="en">Pay by card</span><span data-lang="vi">Thanh toán bằng thẻ</span></a>
-          <p class="hint"><span data-lang="en">Your key is e-mailed automatically.</span><span data-lang="vi">Mã được gửi email tự động.</span></p>
         </div>
         <div class="method">
           <h3>VietQR <span class="muted-s" data-lang="en">(Vietnam bank transfer)</span><span class="muted-s" data-lang="vi">(chuyển khoản ngân hàng VN)</span></h3>
@@ -67,20 +73,31 @@
             <dt data-lang="en">Amount</dt><dt data-lang="vi">Số tiền</dt><dd><b id="b-amount"></b></dd>
             <dt data-lang="en">Message</dt><dt data-lang="vi">Nội dung</dt><dd><b id="b-msg"></b> <button type="button" class="copy" data-copy-id="b-msg">⧉</button></dd>
           </dl>
-          <p class="hint"><span data-lang="en">Scan with any Vietnamese banking app — amount and message are filled in.</span><span data-lang="vi">Quét bằng app ngân hàng bất kỳ — số tiền và nội dung đã điền sẵn, vui lòng giữ nguyên nội dung.</span></p>
+          <p class="hint"><span data-lang="en">Scan with any Vietnamese banking app — amount and message are filled in. Keep the message unchanged.</span><span data-lang="vi">Quét bằng app ngân hàng bất kỳ — số tiền và nội dung đã điền sẵn. Vui lòng giữ nguyên nội dung.</span></p>
+          <button type="button" class="btn primary btn-reported" id="btn-reported"><span data-lang="en">✅ I have transferred</span><span data-lang="vi">✅ Tôi đã chuyển khoản xong</span></button>
+          <p class="hint ok-note" id="reported-note" hidden><span data-lang="en">Thanks! The author has been notified and will confirm shortly — this page updates by itself and your key is e-mailed.</span><span data-lang="vi">Cảm ơn bạn! Tác giả đã nhận được thông báo và sẽ xác nhận sớm — trang này tự cập nhật, mã cũng được gửi qua email.</span></p>
         </div>
         <div class="method">
           <h3>PayPal <span class="muted-s" data-lang="en">(international)</span><span class="muted-s" data-lang="vi">(quốc tế)</span></h3>
           <a class="btn paypal" id="btn-paypal" href="#" target="_blank" rel="noopener"><span data-lang="en">Pay with PayPal</span><span data-lang="vi">Thanh toán qua PayPal</span></a>
-          <p class="hint"><span data-lang="en">PayPal account or card. Amount in USD.</span><span data-lang="vi">Dùng tài khoản PayPal hoặc thẻ. Thanh toán bằng USD.</span></p>
+          <p class="hint"><span data-lang="en">PayPal account or card, in USD. Confirmed automatically.</span><span data-lang="vi">Tài khoản PayPal hoặc thẻ, bằng USD. Xác nhận tự động.</span></p>
         </div>
       </div>
     </section>
 
-    <!-- Bước 4: báo đã thanh toán -->
-    <section class="step">
-      <h2><span class="n">4</span><span data-lang="en">Tell us you paid</span><span data-lang="vi">Báo đã thanh toán</span></h2>
-      <p><span data-lang="en">Send your order details through any channel below. You receive the activation code usually within a few hours.</span><span data-lang="vi">Gửi thông tin đơn hàng qua một kênh bên dưới. Bạn sẽ nhận mã kích hoạt, thường trong vài giờ.</span></p>
+    <!-- Thanh toán thành công -->
+    <section class="step success" id="step-done" hidden>
+      <h2>✅ <span data-lang="en">Payment received — thank you!</span><span data-lang="vi">Đã nhận thanh toán — cảm ơn bạn!</span></h2>
+      <p class="auto-on" hidden><span data-lang="en">Pro activates automatically on your computer within a few minutes. To do it now: open the extension → ⭐ Pro tab → <b>Check payment</b>.</span><span data-lang="vi">Pro sẽ tự kích hoạt trên máy tính của bạn trong vài phút. Muốn ngay: mở tiện ích → thẻ ⭐ Pro → bấm <b>Kiểm tra thanh toán</b>.</span></p>
+      <p><span data-lang="en">Your purchase key (also sent to your e-mail):</span><span data-lang="vi">Mã mua hàng (đã gửi kèm email):</span></p>
+      <div class="key-box"><b id="done-key"></b> <button type="button" class="copy" data-copy-id="done-key">⧉</button></div>
+      <p class="hint"><span data-lang="en">To activate by hand: ⭐ Pro tab → paste the key, enter the same e-mail → Activate.</span><span data-lang="vi">Kích hoạt thủ công: thẻ ⭐ Pro → dán mã, nhập đúng email → Kích hoạt.</span></p>
+    </section>
+
+    <!-- Hỗ trợ -->
+    <section class="step" id="step-help" hidden>
+      <h2><span class="n">?</span><span data-lang="en">Paid but nothing happened after 15 minutes?</span><span data-lang="vi">Đã trả tiền mà sau 15 phút chưa thấy gì?</span></h2>
+      <p><span data-lang="en">Bank transfers are sometimes confirmed by hand. Send us your order details:</span><span data-lang="vi">Chuyển khoản đôi khi được xác nhận thủ công. Gửi thông tin đơn cho tác giả:</span></p>
       <pre class="summary" id="summary"></pre>
       <div class="actions">
         <button type="button" class="btn ghost" id="btn-copy-sum"><span data-lang="en">Copy order details</span><span data-lang="vi">Sao chép thông tin đơn</span></button>
