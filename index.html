@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Scan Manager for RICOH® — Download & bulk-delete scans</title>
+  <meta name="description" content="Chrome extension to download PDFs and bulk-delete scanned files on RICOH Document Server (Web Image Monitor). Auto-detects the device model. 12 languages.">
+  <link rel="icon" href="img/favicon.png">
+  <link rel="stylesheet" href="style.css">
+  <script src="lang.js"></script>
+</head>
+<body>
+  <header class="top">
+    <div class="wrap">
+      <a class="brand" href="index.html"><img src="img/icon.png" alt=""><span>Scan Manager<small>for RICOH® Web Image Monitor</small></span></a>
+      <nav>
+        <a class="hide-sm" href="#features"><span data-lang="en">Features</span><span data-lang="vi">Tính năng</span></a>
+        <a class="hide-sm" href="#pricing"><span data-lang="en">Pricing</span><span data-lang="vi">Bảng giá</span></a>
+        <a class="hide-sm" href="#contact"><span data-lang="en">Contact</span><span data-lang="vi">Liên hệ</span></a>
+        <span class="lang-switch"><button data-l="en">EN</button> <button data-l="vi">VI</button></span>
+      </nav>
+    </div>
+  </header>
+
+  <div class="hero">
+    <div class="wrap">
+      <div>
+        <h1>
+          <span data-lang="en">Manage RICOH scans in seconds</span>
+          <span data-lang="vi">Quản lý file scan RICOH trong vài giây</span>
+        </h1>
+        <p class="lead">
+          <span data-lang="en">Download scanned documents as PDF and bulk-delete old files on your RICOH multifunction printer's Document Server — right from Chrome, safely and in the background.</span>
+          <span data-lang="vi">Tải file scan về PDF và xóa hàng loạt file cũ trên Document Server của máy photocopy RICOH — ngay trên Chrome, an toàn và chạy nền.</span>
+        </p>
+        <!-- Thay href bằng link Chrome Web Store sau khi được duyệt -->
+        <a class="btn primary" id="cta-store" href="#pricing"><span data-lang="en">Add to Chrome — it's free</span><span data-lang="vi">Thêm vào Chrome — miễn phí</span></a>
+        <a class="btn ghost" href="#pricing"><span data-lang="en">See Pro</span><span data-lang="vi">Xem bản Pro</span></a>
+      </div>
+      <div>
+        <img class="shot" data-lang="en" src="img/en_1.jpg" alt="Scan Manager popup">
+        <img class="shot" data-lang="vi" src="img/vi_1.jpg" alt="Giao diện Scan Manager">
+      </div>
+    </div>
+  </div>
+
+  <section id="features">
+    <div class="wrap">
+      <h2><span data-lang="en">Everything you need</span><span data-lang="vi">Đầy đủ những gì bạn cần</span></h2>
+      <div class="features">
+        <div class="feature"><b>📥 <span data-lang="en">One-click PDF</span><span data-lang="vi">Tải PDF một chạm</span></b>
+          <span data-lang="en">Latest files, checked files or a whole page. PDF or PDF/A, with the scan date in the file name.</span>
+          <span data-lang="vi">File mới nhất, file đang chọn hoặc cả trang. PDF hoặc PDF/A, thêm ngày scan vào tên file.</span></div>
+        <div class="feature"><b>🗑️ <span data-lang="en">Safe bulk delete</span><span data-lang="vi">Xóa hàng loạt an toàn</span></b>
+          <span data-lang="en">Delete by page range. Dry run, list check before every deletion and verification afterwards.</span>
+          <span data-lang="vi">Xóa theo dải trang. Chạy thử, đối chiếu danh sách trước khi xóa và xác minh lại sau đó.</span></div>
+        <div class="feature"><b>🔎 <span data-lang="en">Auto-detects your device</span><span data-lang="vi">Tự nhận dạng máy</span></b>
+          <span data-lang="en">Reads model, host name and Document Server capacity. Works with several devices on your LAN.</span>
+          <span data-lang="vi">Đọc dòng máy, host name, dung lượng Document Server. Dùng được nhiều máy trong mạng LAN.</span></div>
+        <div class="feature"><b>🌐 <span data-lang="en">12 languages</span><span data-lang="vi">12 ngôn ngữ</span></b>
+          <span data-lang="en">English, Vietnamese, Chinese, Japanese, Korean, Thai, Indonesian, Spanish, Portuguese, French, German, Russian.</span>
+          <span data-lang="vi">Anh, Việt, Trung, Nhật, Hàn, Thái, Indonesia, Tây Ban Nha, Bồ Đào Nha, Pháp, Đức, Nga.</span></div>
+        <div class="feature"><b>🎨 <span data-lang="en">Your way</span><span data-lang="vi">Theo ý bạn</span></b>
+          <span data-lang="en">Theme colors, Windows fonts and text size. Open as popup, full tab or side panel.</span>
+          <span data-lang="vi">Màu giao diện, phông chữ Windows, cỡ chữ. Mở dạng popup, tab rộng hoặc bảng bên.</span></div>
+        <div class="feature"><b>🛡️ <span data-lang="en">Private & secure</span><span data-lang="vi">Riêng tư & bảo mật</span></b>
+          <span data-lang="en">Works only with devices on your local network that you allow. No tracking, no remote code.</span>
+          <span data-lang="vi">Chỉ làm việc với máy trong mạng nội bộ bạn cho phép. Không theo dõi, không tải mã từ xa.</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="alt">
+    <div class="wrap">
+      <div class="shots">
+        <img data-lang="en" src="img/en_2.jpg" alt="Bulk delete"><img data-lang="en" src="img/en_3.jpg" alt="Settings">
+        <img data-lang="vi" src="img/vi_2.jpg" alt="Xóa hàng loạt"><img data-lang="vi" src="img/vi_3.jpg" alt="Cài đặt">
+      </div>
+    </div>
+  </section>
+
+  <section id="pricing">
+    <div class="wrap">
+      <h2><span data-lang="en">Simple pricing</span><span data-lang="vi">Bảng giá đơn giản</span></h2>
+      <div class="pricing">
+        <div class="plan"><b>Free</b><div class="price">$0</div>
+          <ul data-lang="en"><li>5 runs per day</li><li>Delete up to 3 files/page per run</li><li>Download up to 3 files per run</li><li>Unlimited dry runs</li></ul>
+          <ul data-lang="vi"><li>5 lượt mỗi ngày</li><li>Xóa tối đa 3 file/trang mỗi lượt</li><li>Tải tối đa 3 file mỗi lượt</li><li>Chạy thử không giới hạn</li></ul></div>
+        <div class="plan best"><b>Pro</b><div class="price">$3<small>/<span data-lang="en">mo</span><span data-lang="vi">tháng</span></small></div>
+          <ul data-lang="en"><li>Unlimited runs & files</li><li>Priority support</li><li>All new features</li></ul>
+          <ul data-lang="vi"><li>Không giới hạn lượt & số file</li><li>Ưu tiên hỗ trợ</li><li>Mọi tính năng mới</li><li>79.000đ/tháng (VietQR)</li></ul>
+          <!-- Thay href bằng link thanh toán Lemon Squeezy gói tháng -->
+          <a class="btn primary" href="#contact"><span data-lang="en">Get Pro</span><span data-lang="vi">Mua Pro</span></a></div>
+        <div class="plan"><b><span data-lang="en">Lifetime</span><span data-lang="vi">Trọn đời</span></b><div class="price">$50</div>
+          <ul data-lang="en"><li>Pay once, 1 computer</li><li>All Pro features forever</li></ul>
+          <ul data-lang="vi"><li>Trả 1 lần, 1 máy tính</li><li>Mọi tính năng Pro mãi mãi</li><li>1.299.000đ (VietQR)</li></ul>
+          <!-- Thay href bằng link thanh toán Lemon Squeezy gói trọn đời -->
+          <a class="btn ghost" href="#contact"><span data-lang="en">Buy lifetime</span><span data-lang="vi">Mua trọn đời</span></a></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="alt">
+    <div class="wrap" style="text-align:center">
+      <h2><span data-lang="en">Questions? Talk to us</span><span data-lang="vi">Cần hỗ trợ? Liên hệ ngay</span></h2>
+      <p>Telegram <a href="https://t.me/HUUHAIXD">@HUUHAIXD</a> · Email <a href="mailto:huuhaixd@gmail.com">huuhaixd@gmail.com</a> · Zalo <a href="https://zalo.me/84971100958">+84 971 100 958</a></p>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap">
+      <span>© 2026 Phạm Hữu Hải · Scan Manager for RICOH</span>
+      <span><a href="privacy.html"><span data-lang="en">Privacy policy</span><span data-lang="vi">Chính sách quyền riêng tư</span></a> · <a href="terms.html"><span data-lang="en">Terms of use</span><span data-lang="vi">Điều khoản sử dụng</span></a></span>
+      <span data-lang="en">RICOH is a trademark of Ricoh Company, Ltd. This product is not affiliated with or endorsed by Ricoh.</span>
+      <span data-lang="vi">RICOH là nhãn hiệu của Ricoh Company, Ltd. Sản phẩm này không liên kết với Ricoh.</span>
+    </div>
+  </footer>
+</body>
+</html>
