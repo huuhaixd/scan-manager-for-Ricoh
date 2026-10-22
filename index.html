@@ -5,14 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Scan Manager for RICOH® — Download & bulk-delete scans</title>
   <meta name="description" content="Chrome extension to download PDFs and bulk-delete scanned files on RICOH Document Server (Web Image Monitor). Auto-detects the device model. 12 languages.">
-  <link rel="icon" href="img/favicon.png">
+  <link rel="icon" href="favicon.png">
   <link rel="stylesheet" href="style.css">
   <script src="lang.js"></script>
+  <script src="shop-config.js"></script>
 </head>
 <body>
   <header class="top">
     <div class="wrap">
-      <a class="brand" href="index.html"><img src="img/icon.png" alt=""><span>Scan Manager<small>for RICOH® Web Image Monitor</small></span></a>
+      <a class="brand" href="index.html"><img src="icon.png" alt=""><span>Scan Manager<small>for RICOH® Web Image Monitor</small></span></a>
       <nav>
         <a class="hide-sm" href="#features"><span data-lang="en">Features</span><span data-lang="vi">Tính năng</span></a>
         <a class="hide-sm" href="#pricing"><span data-lang="en">Pricing</span><span data-lang="vi">Bảng giá</span></a>
@@ -33,13 +34,13 @@
           <span data-lang="en">Download scanned documents as PDF and bulk-delete old files on your RICOH multifunction printer's Document Server — right from Chrome, safely and in the background.</span>
           <span data-lang="vi">Tải file scan về PDF và xóa hàng loạt file cũ trên Document Server của máy photocopy RICOH — ngay trên Chrome, an toàn và chạy nền.</span>
         </p>
-        <!-- Thay href bằng link Chrome Web Store sau khi được duyệt -->
-        <a class="btn primary" id="cta-store" href="#pricing"><span data-lang="en">Add to Chrome — it's free</span><span data-lang="vi">Thêm vào Chrome — miễn phí</span></a>
-        <a class="btn ghost" href="#pricing"><span data-lang="en">See Pro</span><span data-lang="vi">Xem bản Pro</span></a>
+        <!-- Link Chrome Web Store: điền SHOP.storeUrl trong shop-config.js -->
+        <a class="btn primary" id="cta-store" href="#contact"><span data-lang="en">Coming soon to Chrome Web Store</span><span data-lang="vi">Sắp có trên Chrome Web Store</span></a>
+        <a class="btn ghost" href="buy.html?plan=month"><span data-lang="en">Get Pro</span><span data-lang="vi">Mua bản Pro</span></a>
       </div>
       <div>
-        <img class="shot" data-lang="en" src="img/en_1.jpg" alt="Scan Manager popup">
-        <img class="shot" data-lang="vi" src="img/vi_1.jpg" alt="Giao diện Scan Manager">
+        <img class="shot" data-lang="en" src="shot-en-1.jpg" alt="Scan Manager popup">
+        <img class="shot" data-lang="vi" src="shot-vi-1.jpg" alt="Giao diện Scan Manager">
       </div>
     </div>
   </div>
@@ -73,8 +74,8 @@
   <section class="alt">
     <div class="wrap">
       <div class="shots">
-        <img data-lang="en" src="img/en_2.jpg" alt="Bulk delete"><img data-lang="en" src="img/en_3.jpg" alt="Settings">
-        <img data-lang="vi" src="img/vi_2.jpg" alt="Xóa hàng loạt"><img data-lang="vi" src="img/vi_3.jpg" alt="Cài đặt">
+        <img data-lang="en" src="shot-en-2.jpg" alt="Bulk delete"><img data-lang="en" src="shot-en-3.jpg" alt="Settings">
+        <img data-lang="vi" src="shot-vi-2.jpg" alt="Xóa hàng loạt"><img data-lang="vi" src="shot-vi-3.jpg" alt="Cài đặt">
       </div>
     </div>
   </section>
@@ -89,13 +90,11 @@
         <div class="plan best"><b>Pro</b><div class="price">$3<small>/<span data-lang="en">mo</span><span data-lang="vi">tháng</span></small></div>
           <ul data-lang="en"><li>Unlimited runs & files</li><li>Priority support</li><li>All new features</li></ul>
           <ul data-lang="vi"><li>Không giới hạn lượt & số file</li><li>Ưu tiên hỗ trợ</li><li>Mọi tính năng mới</li><li>79.000đ/tháng (VietQR)</li></ul>
-          <!-- Thay href bằng link thanh toán Lemon Squeezy gói tháng -->
-          <a class="btn primary" href="#contact"><span data-lang="en">Get Pro</span><span data-lang="vi">Mua Pro</span></a></div>
+          <a class="btn primary" href="buy.html?plan=month"><span data-lang="en">Get Pro</span><span data-lang="vi">Mua Pro</span></a></div>
         <div class="plan"><b><span data-lang="en">Lifetime</span><span data-lang="vi">Trọn đời</span></b><div class="price">$50</div>
           <ul data-lang="en"><li>Pay once, 1 computer</li><li>All Pro features forever</li></ul>
           <ul data-lang="vi"><li>Trả 1 lần, 1 máy tính</li><li>Mọi tính năng Pro mãi mãi</li><li>1.299.000đ (VietQR)</li></ul>
-          <!-- Thay href bằng link thanh toán Lemon Squeezy gói trọn đời -->
-          <a class="btn ghost" href="#contact"><span data-lang="en">Buy lifetime</span><span data-lang="vi">Mua trọn đời</span></a></div>
+          <a class="btn ghost" href="buy.html?plan=lifetime"><span data-lang="en">Buy lifetime</span><span data-lang="vi">Mua trọn đời</span></a></div>
       </div>
     </div>
   </section>
@@ -115,5 +114,14 @@
       <span data-lang="vi">RICOH là nhãn hiệu của Ricoh Company, Ltd. Sản phẩm này không liên kết với Ricoh.</span>
     </div>
   </footer>
+  <script>
+    // Khi đã có link Chrome Web Store: nút chính chuyển thành "Thêm vào Chrome"
+    if (window.SHOP && SHOP.storeUrl) {
+      var cta = document.getElementById("cta-store");
+      cta.href = SHOP.storeUrl;
+      cta.target = "_blank";
+      cta.innerHTML = '<span data-lang="en">Add to Chrome — it's free</span><span data-lang="vi">Thêm vào Chrome — miễn phí</span>';
+    }
+  </script>
 </body>
 </html>

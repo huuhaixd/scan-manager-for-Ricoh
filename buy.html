@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Buy Pro — Scan Manager for RICOH®</title>
+  <link rel="icon" href="favicon.png">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="buy.css">
+  <script src="lang.js"></script>
+  <script src="shop-config.js"></script>
+</head>
+<body>
+  <header class="top">
+    <div class="wrap">
+      <a class="brand" href="index.html"><img src="icon.png" alt=""><span>Scan Manager<small>for RICOH® Web Image Monitor</small></span></a>
+      <nav><span class="lang-switch"><button data-l="en">EN</button> <button data-l="vi">VI</button></span></nav>
+    </div>
+  </header>
+
+  <main class="buy">
+    <h1><span data-lang="en">Upgrade to Pro</span><span data-lang="vi">Nâng cấp lên Pro</span></h1>
+
+    <!-- Bước 1: chọn gói -->
+    <section class="step">
+      <h2><span class="n">1</span><span data-lang="en">Choose a plan</span><span data-lang="vi">Chọn gói</span></h2>
+      <div class="plans">
+        <label class="plan-opt"><input type="radio" name="plan" value="month" id="plan-month">
+          <span class="po-name" data-plan-name="month"></span>
+          <span class="po-price" data-plan-price="month"></span></label>
+        <label class="plan-opt"><input type="radio" name="plan" value="lifetime" id="plan-lifetime">
+          <span class="po-name" data-plan-name="lifetime"></span>
+          <span class="po-price" data-plan-price="lifetime"></span></label>
+      </div>
+    </section>
+
+    <!-- Bước 2: thông tin nhận mã -->
+    <section class="step">
+      <h2><span class="n">2</span><span data-lang="en">Where should we send your key?</span><span data-lang="vi">Nhận mã kích hoạt ở đâu?</span></h2>
+      <div class="fields">
+        <label for="f-email"><span data-lang="en">E-mail (required)</span><span data-lang="vi">Email (bắt buộc)</span></label>
+        <input id="f-email" type="email" placeholder="you@example.com" autocomplete="email">
+        <label for="f-iid"><span data-lang="en">Device ID (optional)</span><span data-lang="vi">Mã máy (không bắt buộc)</span></label>
+        <input id="f-iid" type="text" placeholder="XXXX-XXXX-XXXX-XXXX" maxlength="19">
+        <p class="hint"><span data-lang="en">Open the extension → ⭐ Pro tab → "Your device ID" → Copy. With it we can send a ready-to-use activation code.</span><span data-lang="vi">Mở tiện ích → thẻ ⭐ Pro → "Mã máy của bạn" → Sao chép. Có mã máy, tác giả gửi luôn mã kích hoạt dùng ngay.</span></p>
+      </div>
+      <p class="order"><span data-lang="en">Order code</span><span data-lang="vi">Mã đơn hàng</span>: <b id="order-code"></b></p>
+    </section>
+
+    <!-- Bước 3: thanh toán -->
+    <section class="step">
+      <h2><span class="n">3</span><span data-lang="en">Pay</span><span data-lang="vi">Thanh toán</span></h2>
+      <p class="warn-mail" id="need-email" hidden><span data-lang="en">Please enter your e-mail first.</span><span data-lang="vi">Vui lòng nhập email trước.</span></p>
+      <div class="methods">
+        <div class="method" id="m-lemon" hidden>
+          <h3><span data-lang="en">Card (Visa, Mastercard…)</span><span data-lang="vi">Thẻ quốc tế (Visa, Mastercard…)</span></h3>
+          <a class="btn primary" id="btn-lemon" href="#" target="_blank" rel="noopener"><span data-lang="en">Pay by card</span><span data-lang="vi">Thanh toán bằng thẻ</span></a>
+          <p class="hint"><span data-lang="en">Your key is e-mailed automatically.</span><span data-lang="vi">Mã được gửi email tự động.</span></p>
+        </div>
+        <div class="method">
+          <h3>VietQR <span class="muted-s" data-lang="en">(Vietnam bank transfer)</span><span class="muted-s" data-lang="vi">(chuyển khoản ngân hàng VN)</span></h3>
+          <img id="qr" alt="VietQR" width="270" height="320">
+          <dl class="bank">
+            <dt data-lang="en">Bank</dt><dt data-lang="vi">Ngân hàng</dt><dd id="b-branch"></dd>
+            <dt data-lang="en">Account</dt><dt data-lang="vi">Số tài khoản</dt><dd><b id="b-acc"></b> <button type="button" class="copy" data-copy-id="b-acc">⧉</button></dd>
+            <dt data-lang="en">Holder</dt><dt data-lang="vi">Chủ tài khoản</dt><dd id="b-name"></dd>
+            <dt data-lang="en">Amount</dt><dt data-lang="vi">Số tiền</dt><dd><b id="b-amount"></b></dd>
+            <dt data-lang="en">Message</dt><dt data-lang="vi">Nội dung</dt><dd><b id="b-msg"></b> <button type="button" class="copy" data-copy-id="b-msg">⧉</button></dd>
+          </dl>
+          <p class="hint"><span data-lang="en">Scan with any Vietnamese banking app — amount and message are filled in.</span><span data-lang="vi">Quét bằng app ngân hàng bất kỳ — số tiền và nội dung đã điền sẵn, vui lòng giữ nguyên nội dung.</span></p>
+        </div>
+        <div class="method">
+          <h3>PayPal <span class="muted-s" data-lang="en">(international)</span><span class="muted-s" data-lang="vi">(quốc tế)</span></h3>
+          <a class="btn paypal" id="btn-paypal" href="#" target="_blank" rel="noopener"><span data-lang="en">Pay with PayPal</span><span data-lang="vi">Thanh toán qua PayPal</span></a>
+          <p class="hint"><span data-lang="en">PayPal account or card. Amount in USD.</span><span data-lang="vi">Dùng tài khoản PayPal hoặc thẻ. Thanh toán bằng USD.</span></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Bước 4: báo đã thanh toán -->
+    <section class="step">
+      <h2><span class="n">4</span><span data-lang="en">Tell us you paid</span><span data-lang="vi">Báo đã thanh toán</span></h2>
+      <p><span data-lang="en">Send your order details through any channel below. You receive the activation code usually within a few hours.</span><span data-lang="vi">Gửi thông tin đơn hàng qua một kênh bên dưới. Bạn sẽ nhận mã kích hoạt, thường trong vài giờ.</span></p>
+      <pre class="summary" id="summary"></pre>
+      <div class="actions">
+        <button type="button" class="btn ghost" id="btn-copy-sum"><span data-lang="en">Copy order details</span><span data-lang="vi">Sao chép thông tin đơn</span></button>
+        <a class="btn ghost" id="c-zalo" href="#" target="_blank" rel="noopener">Zalo</a>
+        <a class="btn ghost" id="c-tg" href="#" target="_blank" rel="noopener">Telegram</a>
+        <a class="btn ghost" id="c-mail" href="#">Email</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <span>© 2026 Phạm Hữu Hải</span>
+      <span><a href="index.html">Home</a> · <a href="privacy.html">Privacy</a> · <a href="terms.html">Terms</a></span>
+    </div>
+  </footer>
+  <script src="buy.js"></script>
+</body>
+</html>
