@@ -6,9 +6,9 @@
   <title>Scan Manager for RICOH® — Download & bulk-delete scans</title>
   <meta name="description" content="Chrome extension to download PDFs and bulk-delete scanned files on RICOH Document Server (Web Image Monitor). Auto-detects the device model. 12 languages.">
   <link rel="icon" href="favicon.png">
-  <link rel="stylesheet" href="style.css">
-  <script src="lang.js"></script>
-  <script src="shop-config.js"></script>
+  <link rel="stylesheet" href="style.css?v=20261108">
+  <script src="lang.js?v=20261108"></script>
+  <script src="shop-config.js?v=20261108"></script>
 </head>
 <body>
   <header class="top">
@@ -115,11 +115,11 @@
     </div>
   </footer>
   <script>
-    // Nút "Thêm vào Chrome" lấy link từ shop-config.js; để trống storeUrl = dẫn tới mục Liên hệ
+    // Nút "Thêm vào Chrome": link cố định trong HTML; chỉ ghi đè khi shop-config.js có link khác.
+    // Không bao giờ đổi về "#contact" - bản shop-config.js cũ trong bộ nhớ đệm (storeUrl trống) từng làm nút cuộn xuống Bảng giá.
     (function () {
       var cta = document.getElementById("cta-store");
       if (window.SHOP && SHOP.storeUrl) cta.href = SHOP.storeUrl;
-      else if (window.SHOP) { cta.href = "#contact"; cta.removeAttribute("target"); }
     })();
   </script>
 </body>
