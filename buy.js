@@ -18,7 +18,7 @@
   const serverPlan = () => (plan === "lifetime" ? "lifetime" : "pro");
 
   async function api(body) {
-    const resp = await fetch(S.server, { method: "POST", headers: { "Content-Type": "text/plain;charset=utf-8" }, body: JSON.stringify(body) });
+    const resp = await fetch(S.server, { method: "POST", credentials: "omit", cache: "no-store", headers: { "Content-Type": "text/plain;charset=utf-8" }, body: JSON.stringify(body) });
     return resp.json();
   }
 

@@ -34,8 +34,8 @@
           <span data-lang="en">Download scanned documents as PDF and bulk-delete old files on your RICOH multifunction printer's Document Server — right from Chrome, safely and in the background.</span>
           <span data-lang="vi">Tải file scan về PDF và xóa hàng loạt file cũ trên Document Server của máy photocopy RICOH — ngay trên Chrome, an toàn và chạy nền.</span>
         </p>
-        <!-- Link Chrome Web Store: điền SHOP.storeUrl trong shop-config.js -->
-        <a class="btn primary" id="cta-store" href="#contact"><span data-lang="en">Coming soon to Chrome Web Store</span><span data-lang="vi">Sắp có trên Chrome Web Store</span></a>
+        <!-- Link Chrome Web Store: sửa SHOP.storeUrl trong shop-config.js (href dưới đây dự phòng khi tắt JavaScript) -->
+        <a class="btn primary" id="cta-store" href="https://chromewebstore.google.com/detail/scan-manager-for-ricoh-%E2%80%93/jhkhadgilppacanhelepdadmpaoldbhl" target="_blank" rel="noopener"><span data-lang="en">Add to Chrome — it’s free</span><span data-lang="vi">Thêm vào Chrome — miễn phí</span></a>
         <a class="btn ghost" href="buy.html?plan=month"><span data-lang="en">Get Pro</span><span data-lang="vi">Mua bản Pro</span></a>
       </div>
       <div>
@@ -115,13 +115,12 @@
     </div>
   </footer>
   <script>
-    // Khi đã có link Chrome Web Store: nút chính chuyển thành "Thêm vào Chrome"
-    if (window.SHOP && SHOP.storeUrl) {
+    // Nút "Thêm vào Chrome" lấy link từ shop-config.js; để trống storeUrl = dẫn tới mục Liên hệ
+    (function () {
       var cta = document.getElementById("cta-store");
-      cta.href = SHOP.storeUrl;
-      cta.target = "_blank";
-      cta.innerHTML = '<span data-lang="en">Add to Chrome — it's free</span><span data-lang="vi">Thêm vào Chrome — miễn phí</span>';
-    }
+      if (window.SHOP && SHOP.storeUrl) cta.href = SHOP.storeUrl;
+      else if (window.SHOP) { cta.href = "#contact"; cta.removeAttribute("target"); }
+    })();
   </script>
 </body>
 </html>

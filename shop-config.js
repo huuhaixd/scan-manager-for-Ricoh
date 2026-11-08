@@ -1,10 +1,10 @@
 // CẤU HÌNH BÁN HÀNG CỦA TRANG WEB - chỉ cần sửa file này.
 // - lemon.month / lemon.lifetime: link thanh toán Lemon Squeezy (thẻ quốc tế). Để trống = dùng PayPal + VietQR.
-// - storeUrl: link Chrome Web Store sau khi được duyệt. Để trống = nút "Thêm vào Chrome" dẫn tới mục Liên hệ.
+// - storeUrl: link Chrome Web Store (được duyệt 11/2026). Để trống = nút "Thêm vào Chrome" dẫn tới mục Liên hệ.
 window.SHOP = {
   // URL Web App Google Apps Script (server/Code.gs) - tạo đơn, theo dõi thanh toán, tự cấp mã
   server: "https://script.google.com/macros/s/AKfycbwmRl-eZfYBqbtmJYb38L_YK4_mAQb5owAQsLod4vFZUHEAz37VrNy7mbNSB6MaJzb-ww/exec",
-  storeUrl: "",
+  storeUrl: "https://chromewebstore.google.com/detail/scan-manager-for-ricoh-%E2%80%93/jhkhadgilppacanhelepdadmpaoldbhl",
   lemon: { month: "", lifetime: "" },
   paypalEmail: "huuhaixd@gmail.com",
   bank: { code: "BIDV", account: "2224319413", name: "PHAM HUU HAI", branch: "BIDV - PGD Nhân Chính" },
